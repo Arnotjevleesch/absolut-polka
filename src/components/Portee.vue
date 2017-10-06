@@ -1,5 +1,5 @@
 <template>
-  <div id="porteeDivId" @click="draw"/>
+  <div ref="porteeDiv" @click="draw"/>
 </template>
 
 
@@ -22,10 +22,7 @@ export default class Portee extends Vue {
   stave: Stave
 
   mounted(){
-    const div = document.getElementById("porteeDivId");
-    this.stave = new Stave(div, this.nbNotes);
-
-    //const myPortee = new Stave(this.$el, parseInt(this.nbNotes));
+    this.stave = new Stave(this.$refs.porteeDiv as HTMLElement, this.nbNotes);
   }
 
   draw(event){
