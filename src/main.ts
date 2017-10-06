@@ -24,11 +24,11 @@ new Vue({
 });
 
 // tslint:disable-next-line:no-unused-expression
-new Portee({
+new Vue({
   el: "#divid3",
   // template: "<Portee :nbNotes='4'/>",
   // components: { Portee },
   render: (h) => h(Portee, {
-    props: { nbNotes: "4" },
+    props: { nbNotes: 4 },
   }),
 });
