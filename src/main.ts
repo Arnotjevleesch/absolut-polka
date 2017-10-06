@@ -3,6 +3,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import NumberOfNotes from "./components/NumberOfNotes.vue";
+import Play from "./components/Play.vue";
 import Portee from "./components/Portee.vue";
 import router from "./router";
 
@@ -29,6 +30,14 @@ new Vue({
   // template: "<Portee :nbNotes='4'/>",
   // components: { Portee },
   render: (h) => h(Portee, {
+    props: { nbNotes: 4 },
+  }),
+});
+
+// tslint:disable-next-line:no-unused-expression
+new Vue({
+  el: "#divid4",
+  render: (h) => h(Play, {
     props: { nbNotes: 4 },
   }),
 });
