@@ -23,9 +23,9 @@ export default class Portee extends Vue {
   }
 
   async playing(){
-    // this.$refs.playButton.disabled = true;
+    (this.$refs.playButton as HTMLInputElement).disabled = true;
     await this.player.play(this.nbNotes);
-    // (this.$refs.playButton as HTMLElement).disabled = false;
+    (this.$refs.playButton as HTMLInputElement).disabled = false;
   }
 }
 
