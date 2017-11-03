@@ -6,6 +6,7 @@ import NumberOfNotes from "./components/NumberOfNotes.vue";
 import Play from "./components/Play.vue";
 import Portee from "./components/Portee.vue";
 import router from "./router";
+import { store } from "./store";
 
 Vue.config.devtools = true;
 Vue.config.productionTip = false;
@@ -21,23 +22,20 @@ new Vue({
 // tslint:disable-next-line:no-unused-expression
 new Vue({
   el: "#divid2",
+  store,
   render: (h) => h(NumberOfNotes),
 });
 
 // tslint:disable-next-line:no-unused-expression
 new Vue({
   el: "#divid3",
-  // template: "<Portee :nbNotes='4'/>",
-  // components: { Portee },
-  render: (h) => h(Portee, {
-    props: { nbNotes: 4 },
-  }),
+  store,
+  render: (h) => h(Portee),
 });
 
 // tslint:disable-next-line:no-unused-expression
 new Vue({
   el: "#divid4",
-  render: (h) => h(Play, {
-    props: { nbNotes: 4 },
-  }),
+  store,
+  render: (h) => h(Play),
 });

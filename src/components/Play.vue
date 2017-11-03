@@ -9,13 +9,8 @@ import Vue from 'vue'
 import Player from "../Player";
 import Component from 'vue-class-component'
 
-@Component({
-  props: {
-    nbNotes: Number
-  }
-})
-export default class Portee extends Vue {
-  nbNotes: number
+@Component
+export default class Play extends Vue {
   player: Player
 
   mounted(){
@@ -24,7 +19,7 @@ export default class Portee extends Vue {
 
   async playing(){
     (this.$refs.playButton as HTMLInputElement).disabled = true;
-    await this.player.play(this.nbNotes);
+    await this.player.play(this.$store.state.numberOfNotes);
     (this.$refs.playButton as HTMLInputElement).disabled = false;
   }
 }

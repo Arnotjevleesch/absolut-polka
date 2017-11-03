@@ -1,4 +1,3 @@
-import NoteModule from "NoteModule";
 import * as data from "./data.json";
 
 export default class Player {
