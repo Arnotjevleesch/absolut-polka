@@ -8,6 +8,7 @@
 import Vue from 'vue'
 import Stave from "../Stave";
 import Component from 'vue-class-component'
+import eventHub from '../EventHub'
 
 // https://github.com/vuejs/vue-class-component#vue-class-component
 // https://alligator.io/vuejs/typescript-class-components/
@@ -18,10 +19,15 @@ export default class Portee extends Vue {
 
   mounted(){
     this.stave = new Stave(this.$refs.porteeDiv as HTMLElement, this.$store.state.numberOfNotes);
+    eventHub.$on('updatePortee', this.updatePort)
+  }
+
+  updatePort(){
+    this.stave.initStave(this.$store.state.numberOfNotes);
   }
 
   draw(event){
-    this.stave.drawNotes(event);
+    this.stave.drawNotes(event); 
   }
 }
 

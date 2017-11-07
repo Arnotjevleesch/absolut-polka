@@ -10,18 +10,28 @@ export default class Stave {
   private stave: Vex.Flow.Stave;
   private context: Vex.IRenderContext;
   private numberOfNotes: number;
+  private renderer: Vex.Flow.Renderer;
 
   constructor(div: HTMLElement, numberOfNotes: number) {
     this.div = div;
     this.numberOfNotes = numberOfNotes;
     this.notes = [];
 
-    const renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
+    this.renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
+
+    this.initStave(this.numberOfNotes);
+  }
+
+  public initStave(numberOfNotes: number) {
+
+    this.numberOfNotes = numberOfNotes;
 
     // Configure the rendering context.
-    renderer.resize(400, 100);
-    this.context = renderer.getContext();
+    this.renderer.resize(400, 100);
+    this.context = this.renderer.getContext();
     this.context.setFont("Arial", 10, 1).setBackgroundFillStyle("#eed");
+
+    this.context.clearRect(0, 0, 400, 100);
 
     // Create a stave of width 400 at position 0, 0 on the canvas.
     this.stave = new VF.Stave(0, 0, 400);
@@ -39,20 +49,14 @@ export default class Stave {
       return;
     }
 
+    this.initStave(this.numberOfNotes);
+
     // Create a voice in numberOfNotes/4 and add above notes
     const voice = new VF.Voice({num_beats: this.numberOfNotes,  beat_value: 4});
 
     voice.setMode(Vex.Flow.Voice.Mode.STRICT);
     // voice.setMode(Vex.Flow.Voice.Mode.FULL);
     // voice.isComplete
-
-    this.context.clearRect(0, 0, 400, 100);
-
-    // Create a stave of width 400 at position 0, 0 on the canvas.
-    this.stave = new VF.Stave(0, 0, 400);
-
-    // Add a clef and time signature.
-    this.stave.addClef("treble").addTimeSignature(this.numberOfNotes + "/4");
 
     const mousePos = this.getMousePos(evt);
 
