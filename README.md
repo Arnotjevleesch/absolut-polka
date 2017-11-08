@@ -1,4 +1,4 @@
-# arnouds_vuecli_without_eslint
+# absolut-polka
 
 > A Vue.js project
 
