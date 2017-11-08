@@ -4,6 +4,9 @@
   "description": "A Vue.js project",
   "author": "Arnaud Ruant <external.z31aruan@decathlon.com>",
   "private": true,
+  "engines": {
+    "node": "8.9.1"
+  },
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
