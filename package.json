@@ -5,7 +5,8 @@
   "author": "Arnaud Ruant <external.z31aruan@decathlon.com>",
   "private": true,
   "engines": {
-    "node": "8.9.1"
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
   },
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -84,10 +85,6 @@
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0"
-  },
-  "engines": {
-    "node": ">= 4.0.0",
-    "npm": ">= 3.0.0"
   },
   "browserslist": [
     "> 1%",
