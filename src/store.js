@@ -10,7 +10,7 @@ export const store = new Vuex.Store({
     mutations: {
       // tslint:disable-next-line:no-shadowed-variable
       setNumberOfNotes(state, value) {
-        state.numberOfNotes = value;
+        state.numberOfNotes = parseInt(value, 0);
       },
     },
   });

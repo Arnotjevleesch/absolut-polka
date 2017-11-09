@@ -23,7 +23,7 @@ export default class Portee extends Vue {
   }
 
   updatePort(){
-    this.stave.initStave(this.$store.state.numberOfNotes);
+    this.stave.initStave(this.$store.state.numberOfNotes, true);
   }
 
   draw(event){

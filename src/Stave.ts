@@ -19,22 +19,26 @@ export default class Stave {
 
     this.renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
 
-    this.initStave(this.numberOfNotes);
+    this.initStave(this.numberOfNotes, true);
   }
 
-  public initStave(numberOfNotes: number) {
+  public initStave(numberOfNotes: number, deleteNotes: boolean) {
 
     this.numberOfNotes = numberOfNotes;
 
+    if (deleteNotes) {
+      this.notes = [];
+    }
+
     // Configure the rendering context.
-    this.renderer.resize(400, 100);
+    this.renderer.resize(400, 200);
     this.context = this.renderer.getContext();
     this.context.setFont("Arial", 10, 1).setBackgroundFillStyle("#eed");
 
-    this.context.clearRect(0, 0, 400, 100);
+    this.context.clearRect(0, 0, 400, 200);
 
     // Create a stave of width 400 at position 0, 0 on the canvas.
-    this.stave = new VF.Stave(0, 0, 400);
+    this.stave = new VF.Stave(0, 30, 400);
 
     // Add a clef and time signature.
     this.stave.addClef("treble").addTimeSignature(this.numberOfNotes + "/4");
@@ -49,7 +53,7 @@ export default class Stave {
       return;
     }
 
-    this.initStave(this.numberOfNotes);
+    this.initStave(this.numberOfNotes, false);
 
     // Create a voice in numberOfNotes/4 and add above notes
     const voice = new VF.Voice({num_beats: this.numberOfNotes,  beat_value: 4});
@@ -100,7 +104,7 @@ export default class Stave {
 
     voice.addTickables(staveNotes);
 
-    // Format and justify the notes to 200 pixels.
+    // Format and justify the notes to 400 pixels.
     const formatter = new VF.Formatter().joinVoices([voice]).format([voice], 400);
 
     // Render voice
