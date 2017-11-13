@@ -5,8 +5,8 @@
   "author": "Arnaud Ruant <external.z31aruan@decathlon.com>",
   "private": true,
   "engines": {
-    "node": "9.1.0",
-    "npm": "5.5.1"
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
   },
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -17,9 +17,7 @@
     "test": "npm run unit && npm run e2e"
   },
   "dependencies": {
-    "vexflow": "^1.2.84",
     "vue": "^2.4.2",
-    "vue-class-component": "^6.1.0",
     "vue-router": "^2.7.0",
     "vuex": "^2.4.1",
     "vuex-class": "^0.3.0"
@@ -76,7 +74,10 @@
     "tslint-loader": "^3.5.3",
     "typescript": "^2.5.2",
     "url-loader": "^0.5.8",
+    "vexflow": "^1.2.84",
+    "vue-class-component": "^5.0.2",
     "vue-loader": "^13.0.4",
+    "vue-property-decorator": "^5.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.4.2",
     "webpack": "^2.7.0",
