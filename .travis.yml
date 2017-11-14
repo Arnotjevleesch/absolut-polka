@@ -3,7 +3,7 @@ node_js: "lts/*"
 script: 
   - npm install
   - npm run build
-  - npm run deploy
+  - npm run heroku-deploy
 
 #deploy:
 #  provider: heroku
