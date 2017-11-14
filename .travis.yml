@@ -1,5 +1,10 @@
 language: node_js
-script: npm run build
+node_js:
+  - "lts/*"
+  - "8"
+script: 
+  - npm install
+  - npm run build
 deploy:
   provider: heroku
   api_key:
