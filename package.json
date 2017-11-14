@@ -5,7 +5,7 @@
   "author": "Arnaud Ruant <external.z31aruan@decathlon.com>",
   "private": true,
   "engines": {
-    "node": ">= 4.0.0",
+    "node": "8.9.1",
     "npm": ">= 3.0.0"
   },
   "scripts": {
