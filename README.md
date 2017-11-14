@@ -40,6 +40,9 @@ heroku create absolut-polka
 ```
 https://codeburst.io/quick-n-clean-way-to-deploy-vue-webpack-apps-on-heroku-b522d3904bc8
 
+## travis conf
+travis encrypt $(heroku auth:token) --add deploy.api_key
+
 ## docker build
 ``` bash
 docker build --build-arg http_proxy=$HTTP_PROXY --build-arg https_proxy=$HTTPS_PROXY -t absolut-polka .
