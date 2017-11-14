@@ -44,7 +44,7 @@ https://codeburst.io/quick-n-clean-way-to-deploy-vue-webpack-apps-on-heroku-b522
 ``` bash
 docker build --build-arg http_proxy=$HTTP_PROXY --build-arg https_proxy=$HTTPS_PROXY -t absolut-polka .
 docker images
-docker run -p 49160:8080 -d absolut-polka:latest
+docker run -p 49160:8080 -d --name absolut-polka absolut-polka:latest
 http://localhost:49160
 ```
 
