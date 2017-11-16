@@ -1,11 +1,17 @@
 language: node_js
 node_js: "lts/*"
+
+before_script:
+  - rm -rf dist
+
 script: 
   - npm run build
 
-before_deploy: 
-  - "cd dist"
-  - "git commit -a -m 'dist update'"
+before_deploy:
+  - cd dist
+  - git add -A
+  - git commit -a -m "dist update"
+
 deploy:
   provider: heroku
   api_key:
