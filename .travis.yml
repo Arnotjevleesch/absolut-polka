@@ -2,7 +2,8 @@ language: node_js
 node_js: "lts/*"
 
 before_script:
-  - rm -rf dist
+  - rm -f dist/index.html
+  - rm -rf dist/static
 
 script: 
   - npm run build
