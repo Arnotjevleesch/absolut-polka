@@ -9,6 +9,7 @@ script:
 
 before_deploy:
   - cd dist
+  - ls
 
 deploy:
   provider: heroku
