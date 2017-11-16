@@ -32,6 +32,11 @@ npm test
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
+## todo
+- make responsive : bootstrap-vue
+- feature comparison
+- buttons & worflow : play again, compare, clear stave
+
 ## heroku deploy mode
 Set proxies
 ``` bash
