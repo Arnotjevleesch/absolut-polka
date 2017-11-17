@@ -1,5 +1,8 @@
 <template>
-  <div ref="porteeDiv" @click="draw"/>
+  <div>
+    <div ref="porteeDiv" @click="draw"/>
+    <input type="button" value="Clear" @click="updatePort"/>
+  </div>
 </template>
 
 
