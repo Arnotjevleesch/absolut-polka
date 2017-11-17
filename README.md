@@ -1,5 +1,7 @@
 # absolut-polka
 
+[![Build Status](https://travis-ci.org/Arnotjevleesch/absolut-polka.svg?branch=master)](https://travis-ci.org/Arnotjevleesch/absolut-polka)
+
 > A Vue.js project
 
 ## Build Setup
