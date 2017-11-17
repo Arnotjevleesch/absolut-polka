@@ -40,6 +40,7 @@ export default class Player {
 
             // https://www.keithmcmillen.com/blog/making-music-in-the-browser-web-audio-api-part-1/
             // https://www.sitepoint.com/web-audio-api-add-sound-to-web-page/
+            // http://alemangui.github.io/blog//2015/12/26/ramp-to-value.html
 
             osc = this.ctx.createOscillator();
             osc.frequency.value = frequency;
@@ -47,6 +48,8 @@ export default class Player {
             osc.connect(g);
             g.connect(this.ctx.destination);
             osc.start(this.ctx.currentTime);
+
+            g.gain.setValueAtTime(g.gain.value, this.ctx.currentTime);
             g.gain.exponentialRampToValueAtTime(0.00001, this.ctx.currentTime + 2);
 
             window.setTimeout( () => {
