@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from "vue";
 import App from "./App.vue";
+import Compare from "./components/Compare.vue";
 import NumberOfNotes from "./components/NumberOfNotes.vue";
 import Play from "./components/Play.vue";
 import Portee from "./components/Portee.vue";
@@ -38,4 +39,11 @@ new Vue({
   el: "#divid4",
   store,
   render: (h) => h(Play),
+});
+
+// tslint:disable-next-line:no-unused-expression
+new Vue({
+  el: "#divid5",
+  store,
+  render: (h) => h(Compare),
 });

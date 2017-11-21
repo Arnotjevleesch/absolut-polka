@@ -21,8 +21,10 @@ export default class Portee extends Vue {
   stave: Stave
 
   mounted(){
-    this.stave = new Stave(this.$refs.porteeDiv as HTMLElement, this.$store.state.numberOfNotes);
+    this.stave = new Stave(this.$refs.porteeDiv as HTMLElement, this.$store.state.numberOfNotes)
     eventHub.$on('updatePortee', this.updatePort)
+
+    this.$store.commit('setStave', this.stave)
   }
 
   updatePort(){

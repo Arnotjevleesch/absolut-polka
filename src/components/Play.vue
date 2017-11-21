@@ -15,6 +15,7 @@ export default class Play extends Vue {
 
   mounted(){
     this.player = new Player();
+    this.$store.commit('setPlayer', this.player)
   }
 
   async playing(){

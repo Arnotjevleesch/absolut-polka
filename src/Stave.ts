@@ -47,6 +47,71 @@ export default class Stave {
     this.stave.setContext(this.context).draw();
   }
 
+  public drawCorrection(frequencies: number[]) {
+    const playedNotes = [];
+
+    for (const frequency of frequencies) {
+      const playedNote = this.getNoteFromFrequency(frequency);
+      playedNotes.push(playedNote);
+    }
+
+    let staveNotes: Vex.Flow.StaveNotes = [];
+    let triplet = null;
+
+    // https://fr.wikipedia.org/wiki/Mesure_(musique)#/media/File:YB0142_Mesures_simples.png
+    if (this.numberOfNotes === 1) {
+      staveNotes = this.createQuarters(playedNotes, 1, false);
+    } else if (this.numberOfNotes === 2) {
+      if (playedNotes.length === 1) {
+        staveNotes = this.createHalves(playedNotes, 1, false);
+      } else if (playedNotes.length === 2) {
+        staveNotes = this.createQuarters(playedNotes, 2, false);
+      }
+    } else if (this.numberOfNotes === 3) {
+      if (playedNotes.length === 1) {
+        staveNotes = this.createHalves(playedNotes, 1, true);
+      } else if (playedNotes.length === 2) {
+        staveNotes = this.createQuarters(playedNotes, 2, true);
+      } else if (playedNotes.length === 3) {
+        staveNotes = this.createQuarters(playedNotes, 3, false);
+      }
+    } else if (this.numberOfNotes === 4) {
+      if (playedNotes.length === 1) {
+        staveNotes = this.createAWhole(playedNotes);
+      } else if (playedNotes.length === 2) {
+        staveNotes = this.createHalves(playedNotes, 2, false);
+      } else if (playedNotes.length === 3) {
+        staveNotes = this.createHalves(playedNotes, 3, false);
+        triplet = new Vex.Flow.Tuplet(staveNotes);
+      } else if (playedNotes.length === 4) {
+        staveNotes = this.createQuarters(playedNotes, 4, false);
+      }
+    }
+
+    // color notes
+    for (const staveNote of staveNotes) {
+      staveNote.setKeyStyle(0, { fillStyle: "YellowGreen ", strokeStyle: "YellowGreen" });
+      staveNote.setStemStyle({ fillStyle: "YellowGreen ", strokeStyle: "YellowGreen" });
+    }
+
+    const voice = new VF.Voice({num_beats: this.numberOfNotes,  beat_value: 4});
+
+    voice.addTickables(staveNotes);
+
+    // Format and justify the notes to 400 pixels.
+    const formatter = new VF.Formatter().joinVoices([voice]).format([voice], 400);
+
+    // Render voice
+    voice.draw(this.context, this.stave);
+
+    if (triplet != null) {
+      triplet.setContext(this.context).draw();
+    }
+
+    // Connect it to the rendering context and draw!
+    this.stave.setContext(this.context).draw();
+  }
+
   public drawNotes(evt) {
 
     if (this.notes.length === this.numberOfNotes) {
@@ -138,6 +203,16 @@ export default class Stave {
         if (yPosition < noteTab.ymax && yPosition > noteTab.ymin) {
           return noteTab;
         }
+      }
+    }
+  }
+
+  private getNoteFromFrequency(frequency: number) {
+    const notesTab = (data as any).notes;
+
+    for (const noteTab of notesTab) {
+      if (noteTab.frequency === frequency) {
+        return noteTab;
       }
     }
   }

@@ -3,6 +3,7 @@ import * as data from "./data.json";
 export default class Player {
 
     private ctx: AudioContext;
+    private frequencies: number[] = [];
 
     constructor() {
         this.ctx = new AudioContext();
@@ -11,10 +12,10 @@ export default class Player {
     // https://www.itrust.fr/la-programmation-asynchrone-javascript/
     public async play(numberOfNotes) {
 
-        const pulledFrequencies: number[] = this.pullFrequencies(numberOfNotes);
+        this.frequencies = this.pullFrequencies(numberOfNotes);
 
-        for (const pulledFrequency of pulledFrequencies) {
-            await this.playNote(pulledFrequency);
+        for (const frequency of this.frequencies) {
+            await this.playNote(frequency);
         }
         // play(440).then(result => { console.log(result) ; });
         // play(440).then(result => { play(293.7); });
