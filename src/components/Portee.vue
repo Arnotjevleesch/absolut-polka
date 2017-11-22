@@ -1,7 +1,7 @@
 <template>
   <div>
     <div ref="porteeDiv" @click="draw"/>
-    <input type="button" value="Clear" @click="updatePort"/>
+    <b-button @click="updatePort">Clear</b-button>
   </div>
 </template>
 

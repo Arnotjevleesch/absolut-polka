@@ -1,8 +1,8 @@
 <template>
 
-  <select id="numberOfNotesSelect" v-model="selectedNumberOfNotes" @change="change">
+  <b-form-select id="numberOfNotesSelect" v-model="selectedNumberOfNotes" @change="change" size="sm">
     <option v-for="index in indexes" :key="index.id" :value="index.val">{{index.val}}</option>
-  </select>
+  </b-form-select>
 
 </template>
 

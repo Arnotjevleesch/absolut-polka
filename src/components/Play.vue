@@ -1,5 +1,5 @@
 <template>
-  <input ref="playButton" type="button" value="Play" @click="playing"/>
+  <b-button ref="playButton" @click="playing" variant="success">Play</b-button>
 </template>
 
 

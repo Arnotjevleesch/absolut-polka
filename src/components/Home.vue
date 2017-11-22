@@ -1,9 +1,9 @@
 <template>
   <div id="divid1">
-    1/ Play : <span id="spanid1" /><span id="spanid2" />
+    <h4>1/</h4><span id="spanid1" /><span id="spanid2" />
     <br/><br/>
-    2/ Draw : <div id="divid3" />
+    <h4>2/ Draw :</h4><div id="divid3" />
     <br/>
-    3/ Compare : <div id="divid4" />
+    <h4>3/</h4><div id="divid4" />
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <input ref="compareButton" type="button" value="Compare" @click="compare" :disabled="disableCompareButton"/>
+  <b-button ref="compareButton" type="button" @click="compare" :disabled="disableCompareButton" variant="primary">Compare</b-button>
 </template>
 
 <script lang="ts">
