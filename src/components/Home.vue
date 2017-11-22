@@ -1,8 +1,9 @@
 <template>
   <div id="divid1">
-    <div id="divid2" />
-    <div id="divid3" />
-    <div id="divid4" />
-    <div id="divid5" />
+    1/ Play : <span id="spanid1" /><span id="spanid2" />
+    <br/><br/>
+    2/ Draw : <div id="divid3" />
+    <br/>
+    3/ Compare : <div id="divid4" />
   </div>
 </template>

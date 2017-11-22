@@ -22,9 +22,16 @@ new Vue({
 
 // tslint:disable-next-line:no-unused-expression
 new Vue({
-  el: "#divid2",
+  el: "#spanid1",
   store,
   render: (h) => h(NumberOfNotes),
+});
+
+// tslint:disable-next-line:no-unused-expression
+new Vue({
+  el: "#spanid2",
+  store,
+  render: (h) => h(Play),
 });
 
 // tslint:disable-next-line:no-unused-expression
@@ -37,13 +44,6 @@ new Vue({
 // tslint:disable-next-line:no-unused-expression
 new Vue({
   el: "#divid4",
-  store,
-  render: (h) => h(Play),
-});
-
-// tslint:disable-next-line:no-unused-expression
-new Vue({
-  el: "#divid5",
   store,
   render: (h) => h(Compare),
 });
