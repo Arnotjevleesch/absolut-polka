@@ -1,9 +1,7 @@
 <template>
-
-  <b-form-select id="numberOfNotesSelect" v-model="selectedNumberOfNotes" @change="change" size="sm">
+  <select id="numberOfNotesSelect" v-model="selectedNumberOfNotes" @change="change">
     <option v-for="index in indexes" :key="index.id" :value="index.val">{{index.val}}</option>
-  </b-form-select>
-
+  </select>
 </template>
 
 <script lang="ts">
@@ -15,7 +13,7 @@ import eventHub from '../EventHub'
 @Component
 export default class NumberOfNotes extends Vue {
   
-  selectedNumberOfNotes: number = this.$store.state.numberOfNotes
+  selectedNumberOfNotes: number = 4// = this.$store.state.numberOfNotes
 
   indexes =  [
     { id: 0, val: '1' },
@@ -26,7 +24,7 @@ export default class NumberOfNotes extends Vue {
 
   change(){
     this.$store.commit('setNumberOfNotes', this.selectedNumberOfNotes)
-    eventHub.$emit('updatePortee')
+    eventHub.$emit('updatePortee')  
   }
 }
 
