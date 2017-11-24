@@ -71,3 +71,9 @@ rm -rf node_modules; rm -f package-lock.json; npm install --production
 https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
 
 https://devcenter.heroku.com/articles/container-registry-and-runtime
+
+### responsive
+http://www.opentuto.com/afficher-cacher-du-contenu-bootstrap-3-en-fonction-du-support/
+https://www.w3schools.com/bootstrap/bootstrap_grid_system.asp
+https://www.w3schools.com/bootstrap/bootstrap_grid_examples.asp
+https://bootstrap-vue.js.org/docs/components/layout

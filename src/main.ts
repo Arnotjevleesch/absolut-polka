@@ -1,6 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import BootstrapVue from "bootstrap-vue";
+
 import Vue from "vue";
 import App from "./App.vue";
 import Compare from "./components/Compare.vue";
@@ -10,13 +10,15 @@ import Portee from "./components/Portee.vue";
 import router from "./router";
 import { store } from "./store";
 
+import BootstrapVue from "bootstrap-vue/dist/bootstrap-vue.esm";
+// tslint:disable-next-line:  ordered-imports
+import "bootstrap-vue/dist/bootstrap-vue.css";
+import "bootstrap/dist/css/bootstrap.css";
+
 Vue.config.devtools = true;
 Vue.config.productionTip = false;
 
 Vue.use(BootstrapVue);
-
-import "bootstrap-vue/dist/bootstrap-vue.css";
-import "bootstrap/dist/css/bootstrap.css";
 
 // tslint:disable-next-line:no-unused-expression
 new Vue({
@@ -28,28 +30,28 @@ new Vue({
 
 // tslint:disable-next-line:no-unused-expression
 new Vue({
-  el: "#spanid1",
+  el: "#divid2",
   store,
   render: (h) => h(NumberOfNotes),
 });
 
 // tslint:disable-next-line:no-unused-expression
 new Vue({
-  el: "#spanid2",
+  el: "#divid3",
   store,
   render: (h) => h(Play),
 });
 
 // tslint:disable-next-line:no-unused-expression
 new Vue({
-  el: "#divid3",
+  el: "#divid4",
   store,
   render: (h) => h(Portee),
 });
 
 // tslint:disable-next-line:no-unused-expression
 new Vue({
-  el: "#divid4",
+  el: "#divid5",
   store,
   render: (h) => h(Compare),
 });
